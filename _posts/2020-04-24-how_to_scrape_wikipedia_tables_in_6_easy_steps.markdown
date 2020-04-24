@@ -21,18 +21,19 @@ According to Wikipedia :
     `from bs4 import BeautifulSoup`
     ` import pandas as pd`
 
-Using Requests and Beautiful Soup we extract all the info from the HTML, the result is going to be pretty but messy.
+Using Requests and Beautiful Soup you can extract all the info from the HTML, the result is going to be pretty messy. It's like having an Xray done for a broken bone: it will show you were it's broken but it won't fix it.
 ```
 html = urlopen(url) 
 soup = BeautifulSoup(html, 'html.parser')
 website_url = requests.get(url).text
 soup = BeautifulSoup(website_url, 'lxml')
 ```
-To be able to find HTML elements we have to inspect element on the web page. 
-Right click on the table:
+Let's get to fixing bones:
+To be able to find HTML elements we have to use 'inspect element' on the web page. 
+Right click on the table, then left click on inspect:
  ![Click on 'Inspect'](https://i.imgur.com/zd17VGk.png)
  
-There is an actual element 'table' in HTML:
+There is an actual element 'table' in HTML, that's how easy it is to `.find` it:
  
  ![Table element](https://i.imgur.com/MgcFC6v.png)
  
@@ -43,18 +44,18 @@ Here is the code:
  The HTML element for row is <tr>
  ![Row element](https://i.imgur.com/FTyrBdY.png)
  
- Here is the code to get all rows:
+ Here is the code to `.find_all` rows:
    
 	 ``rows = My_table.find_all('tr')``
 
 The HTML element for cell in the row is <td>
  ![Cell element]([https://i.imgur.com/ZkD1s9a.png)
  
- Here is the code to get all cells in a row:
+ Here is the code to `.find_all`  cells in a row:
    
 	 ``cells = row.find_all('td')``
  
- The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
+ The information we need sits inside each cell in an 'a' element with attribute `title`. 
 
 ![Title](https://i.imgur.com/bWuirSs.png)
 
@@ -68,7 +69,7 @@ Actors' names sit in 2nd cell.
 You can find genre information in the 3rd cell.
 ```genre = cells[3]```
 
-We know how to extract information from each cell. The following code will allow you to pull a whole table using a for loop and dump it into a data frame.
+We know how to extract information from each cell. The following code will allow you to pull a whole table using a for loop the you just need to dump all the info into a data frame. 
 ```
 titles = []
 directors = []
