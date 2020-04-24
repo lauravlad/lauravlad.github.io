@@ -90,11 +90,11 @@ for row in rows:
 ```
 
 And voila!
-![Result Table](https://imgur.com/kp749uh)
+![Result Table](https://i.imgur.com/kp749uh.png)
 
 Good luck scraping!
  
-![](https://imgur.com/VjsIwBv)
+
 
 
 
