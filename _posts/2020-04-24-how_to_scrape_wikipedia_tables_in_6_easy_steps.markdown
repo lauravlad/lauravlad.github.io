@@ -21,7 +21,7 @@ According to Wikipedia :
     `from bs4 import BeautifulSoup`
     ` import pandas as pd`
 
-1. Using Requests and Beautiful Soup we extract all the info from the HTML, the result is going to be pretty but messy.
+Using Requests and Beautiful Soup we extract all the info from the HTML, the result is going to be pretty but messy.
 ```
 html = urlopen(url) 
 soup = BeautifulSoup(html, 'html.parser')
@@ -29,31 +29,31 @@ website_url = requests.get(url).text
 soup = BeautifulSoup(website_url, 'lxml')
 ```
 To be able to find HTML elements we have to inspect element on the web page. 
-2. Right click on the table:
+Right click on the table:
  ![Click on 'Inspect'](https://imgur.com/VjsIwBv)
  
-3. There is an actual element 'table' in HTML:
+There is an actual element 'table' in HTML:
  
  ![Table element](https://imgur.com/VjsIwBv)
  
- Here is the code:
+Here is the code:
     
 		``My_table = soup.find('table',{'class':'wikitable sortable'})``
  
-4. The HTML element for row is <tr>
+ The HTML element for row is <tr>
  ![Row element](https://imgur.com/0HgeXcy)
  
  Here is the code to get all rows:
    
 	 ``rows = My_table.find_all('tr')``
 
-5. The HTML element for cell in the row is <td>
+The HTML element for cell in the row is <td>
  ![Cell element](https://imgur.com/ZcmoNci)
  Here is the code to get all cells in a row:
    
 	 ``cells = row.find_all('td')``
  
- 6. The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
+ The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
 
 ![Title](https://imgur.com/NMyscD8)
 
