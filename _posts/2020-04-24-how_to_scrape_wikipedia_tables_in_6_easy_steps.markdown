@@ -18,8 +18,7 @@ According to Wikipedia :
  
  Import Requests, Beautiful Soup and Pandas:
     `import requests`
-    `from bs4 import BeautifulSoup`
-    ` import pandas as pd`
+    `from bs4 import BeautifulSoup`` import pandas as pd`
 
 Using Requests and Beautiful Soup you can extract all the info from the HTML, the result is going to be pretty messy. It's like having an Xray done for a broken bone: it will show you were it's broken but it won't fix it.
 ```
