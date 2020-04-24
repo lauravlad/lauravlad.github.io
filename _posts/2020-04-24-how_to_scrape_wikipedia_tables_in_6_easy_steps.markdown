@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "How to scrape Wikipedia tables in 6 easy steps."
+title:      "How to scrape Wikipedia tables in 6-ish easy steps."
 date:       2020-04-24 01:19:56 -0400
 permalink:  how_to_scrape_wikipedia_tables_in_6_easy_steps
 ---
