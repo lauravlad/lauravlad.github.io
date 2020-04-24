@@ -12,7 +12,7 @@ According to Wikipedia :
 
  I will be scraping a Wikipedia page to gather information about all the movies released in 1999 and here is the link for that search: https://en.wikipedia.org/wiki/List_of_American_films_of_1999
  
- ![Wikipedia page](https://imgur.com/a/RQOAFm7p://)
+ ![Wikipedia page](https://i.imgur.com/pdJKaGb.png)
  
  We need a table with titles, genres, director and actor names. Almost all tables in Wikipedia have the same tree structure so don't be surprised if you will be able to scrape some other tables following the same methodology.
  
@@ -30,32 +30,33 @@ soup = BeautifulSoup(website_url, 'lxml')
 ```
 To be able to find HTML elements we have to inspect element on the web page. 
 Right click on the table:
- ![Click on 'Inspect'](https://imgur.com/VjsIwBv)
+ ![Click on 'Inspect'](https://i.imgur.com/zd17VGk.png)
  
 There is an actual element 'table' in HTML:
  
- ![Table element](https://imgur.com/VjsIwBv)
+ ![Table element](https://i.imgur.com/MgcFC6v.png)
  
 Here is the code:
     
 		``My_table = soup.find('table',{'class':'wikitable sortable'})``
  
  The HTML element for row is <tr>
- ![Row element](https://imgur.com/0HgeXcy)
+ ![Row element](https://i.imgur.com/FTyrBdY.png)
  
  Here is the code to get all rows:
    
 	 ``rows = My_table.find_all('tr')``
 
 The HTML element for cell in the row is <td>
- ![Cell element](https://imgur.com/ZcmoNci)
+ ![Cell element]([https://i.imgur.com/ZkD1s9a.png)
+ 
  Here is the code to get all cells in a row:
    
 	 ``cells = row.find_all('td')``
  
  The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
 
-![Title](https://imgur.com/NMyscD8)
+![Title](https://i.imgur.com/bWuirSs.png)
 
 Here is the code to get the information from the cell:
 Counting starts with 0 so the title of the movie sits in the 0 cell.
@@ -89,7 +90,7 @@ for row in rows:
           df = pd.DataFrame({'Titles': titles,'Directors' : directors, 'Actors': actors, 'Genres':    genres, }, index = index   )
 ```
 
-And voila!
+Et voila!
 ![Result Table](https://i.imgur.com/kp749uh.png)
 
 Good luck scraping!
