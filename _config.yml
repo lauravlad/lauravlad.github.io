@@ -1,11 +1,11 @@
 # Site settings
 author: Laura Vlad
-title: Mimi scrape Wikipedia  tables
+title: Data Science in the time of COVID-19
 header-img: img/home-bg.png
 email: lmvlad@yahoo.com
 copyright_name: Laura Vlad
 description: > # this means to ignore newlines until "baseurl:"
-  Movie table scraping
+  A journey from teaching Logic to learning Data Science
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  lauravlad
