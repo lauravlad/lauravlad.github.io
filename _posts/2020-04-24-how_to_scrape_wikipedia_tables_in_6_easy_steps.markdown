@@ -27,7 +27,8 @@ soup = BeautifulSoup(html, 'html.parser')
 website_url = requests.get(url).text
 soup = BeautifulSoup(website_url, 'lxml')
 ```
-#### Let's get to fixing bones:
+
+### Let's get to fixing bones:
 To be able to find HTML elements we have to use 'inspect element' on the web page. 
 Right click on the table, then left click on inspect:
  ![Click on 'Inspect'](https://i.imgur.com/zd17VGk.png)
