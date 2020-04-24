@@ -52,7 +52,7 @@ Here is the code:
 
 The HTML element for cell in the row is <td>
 
- ![Cell element]([https://i.imgur.com/ZkD1s9a.png)
+![](https://i.imgur.com/yQfcF0Q.png)
  
  Here is the code to `.find_all`  cells in a row:
    
