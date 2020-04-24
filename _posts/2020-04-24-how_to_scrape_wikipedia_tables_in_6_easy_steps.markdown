@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "How to scrape Wikipedia tables in 6 easy steps."
-date:       2020-04-24 05:19:55 +0000
+date:       2020-04-24 01:19:56 -0400
 permalink:  how_to_scrape_wikipedia_tables_in_6_easy_steps
 ---
 
@@ -21,7 +21,7 @@ According to Wikipedia :
     `from bs4 import BeautifulSoup`
     ` import pandas as pd`
 
-Using Requests and Beautiful Soup we extract all the info from the HTML, the resul is going to be pretty but messy.
+1. Using Requests and Beautiful Soup we extract all the info from the HTML, the result is going to be pretty but messy.
 ```
 html = urlopen(url) 
 soup = BeautifulSoup(html, 'html.parser')
@@ -29,10 +29,10 @@ website_url = requests.get(url).text
 soup = BeautifulSoup(website_url, 'lxml')
 ```
 To be able to find HTML elements we have to inspect element on the web page. 
-  2. Right click on the table:
+2. Right click on the table:
  ![Click on 'Inspect'](https://imgur.com/VjsIwBv)
  
- 3. There is an actual element 'table' in HTML:
+3. There is an actual element 'table' in HTML:
  
  ![Table element](https://imgur.com/VjsIwBv)
  
@@ -40,20 +40,20 @@ To be able to find HTML elements we have to inspect element on the web page.
     
 		``My_table = soup.find('table',{'class':'wikitable sortable'})``
  
- 4 The HTML element for row is <tr>
+4. The HTML element for row is <tr>
  ![Row element](https://imgur.com/0HgeXcy)
  
  Here is the code to get all rows:
    
 	 ``rows = My_table.find_all('tr')``
 
- 5 The HTML element for cell in the row is <td>
+5. The HTML element for cell in the row is <td>
  ![Cell element](https://imgur.com/ZcmoNci)
  Here is the code to get all cells in a row:
    
 	 ``cells = row.find_all('td')``
  
-6. The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
+ 6. The information we need sits inside each cell in 'a' element marked with `<a ` with attribute `title`.
 
 ![Title](https://imgur.com/NMyscD8)
 
