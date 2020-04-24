@@ -31,6 +31,7 @@ soup = BeautifulSoup(website_url, 'lxml')
 ### Let's get to fixing bones:
 To be able to find HTML elements we have to use 'inspect element' on the web page. 
 Right click on the table, then left click on inspect:
+
  ![Click on 'Inspect'](https://i.imgur.com/zd17VGk.png)
  
 There is an actual element 'table' in HTML, that's how easy it is to `.find` it:
@@ -42,6 +43,7 @@ Here is the code:
 		``My_table = soup.find('table',{'class':'wikitable sortable'})``
  
  The HTML element for row is <tr>
+ 
  ![Row element](https://i.imgur.com/FTyrBdY.png)
  
  Here is the code to `.find_all` rows:
@@ -49,6 +51,7 @@ Here is the code:
 	 ``rows = My_table.find_all('tr')``
 
 The HTML element for cell in the row is <td>
+
  ![Cell element]([https://i.imgur.com/ZkD1s9a.png)
  
  Here is the code to `.find_all`  cells in a row:
@@ -60,6 +63,7 @@ The HTML element for cell in the row is <td>
 ![Title](https://i.imgur.com/bWuirSs.png)
 
 Here is the code to get the information from the cell:
+
 Counting starts with 0 so the title of the movie sits in the 0 cell.
 ```title = cells[0] ```
 Director's name sits in the 1st cell.
@@ -70,6 +74,7 @@ You can find genre information in the 3rd cell.
 ```genre = cells[3]```
 
 We know how to extract information from each cell. The following code will allow you to pull a whole table using a for loop the you just need to dump all the info into a data frame. 
+
 ```
 titles = []
 directors = []
