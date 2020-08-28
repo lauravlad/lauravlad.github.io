@@ -5,7 +5,6 @@ date:       2020-08-27 20:56:40 -0400
 permalink:  heart_disease_modeling
 ---
 
-
 ![](https://imgur.com/zdu8h3z.png)
 
 
