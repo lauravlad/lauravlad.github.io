@@ -18,7 +18,7 @@ The term "heart disease" is often used interchangeably with the term "cardiovasc
 
 My goal in this project is to find the best working model for this specific dataset.
 
-I started working with the Heart.csv dataset found on Kaggle but soon I found out that some of the features were plain weird. The target feature was supposed to have two values: 0 for healthy (no heart disease) and 1 for not healthy (heart disease) but they were somehow switched. This was only the begining so I decided to get the dataset directly from <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">here </a>. The dataset contains 14 atribute columns and a little over 303 instances. 
+I started working with the Heart.csv dataset found on Kaggle, but soon I found out that some of the features were incondistent with the dataset description. For example: the target feature was supposed to have two values: 0 for healthy (no heart disease), and 1 for not healthy (heart disease) but they were somehow switched. This was only the begining so I decided to use the dataset dounloaded from <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">here </a>. The dataset contains 14 atribute columns and a little over 303 instances. 
 
 Attribute Information:
 1. age: age in years
@@ -44,7 +44,7 @@ Value 4: asymptomatic
 14. Target: diagnosis of heart disease (angiographic disease status)(0 = absence of heart disease, 1,2,3,4 = presence)
 
 
-First we imported the necessary packages for data analysis and vizualisations:
+First we imported the necessary packages:
 ```
 import pandas as pd
 import numpy as np
@@ -62,14 +62,14 @@ from sklearn.metrics import roc_curve, roc_auc_score, precision_score, accuracy_
 
 ```
 
-We turned the csv document into a dataframe for analysis:
+We imported and transformed the csv document into a dataframe for analysis:
 
 ```
 data=pd.read_csv('processed.cleveland.csv')
 data.head()
 ```
 
-Then we separated features into categorical data and continuous data using this function:
+We separated features into categorical data and continuous data using this function:
 
 ```
 # Function that will find the number of unique values and tell us if it's high or low.
@@ -91,15 +91,15 @@ def find_number_unique_values(df):
     print(f" boolean values - {bool_val}.")  
 ```
 
-While analysing each one of the predictors I discovered that 'ca' and 'thal' features had a few values missing so we dropped those rows:
+While analysing each one of the predictors, we discovered that 'ca' and 'thal' features have a few values missing so we dropped the coresponding rows:
 
 ```
 #Drop rows with ca = ?.
 data = data[data['ca']!='?']
 ```
-Aftyer analysing the dataset we can conclude the obvious: age, lower maximum blood pressure, high blood glucose levels, abnormal elecrocardiographic results, blockages on major blood vessels increase the probability of having heart disease.
+After analysing the dataset we can conclude the obvious: age, lower maximum blood pressure, high blood glucose levels, abnormal elecrocardiographic results, and blockages on major blood vessels increase the probability of having heart disease.
  
- We can also deduct less obvious 
+ We can also deduct less obvious. 
 
 According to this dataset, earlier in life man are more likely to develop heart disease than women.
 
@@ -111,7 +111,7 @@ Later in life the difference is not that striking.
 <img src="https://imgur.com/QsnCnej.png" alt="visualisation" class="img-responsive">
 
 
-The problem is that there is this stereotype that women are less likely to develop cardiovascular diseases because they are protected by higher leves of estrogen therefore they are less likely to be tested when complaining of heart issues. Instead they are given antidepressants because of another stereotype: women are more likely to be depressed.
+The problem is that there is this stereotype that women are less likely to develop cardiovascular diseases, because they are protected by higher leves of estrogen, therefore they are less likely to be tested when complaining of heart issues. Instead, they are given antidepressants because of another stereotype: women are more likely to be depressed.
 
 "Cardiovascular disease develops 7 to 10 years later in women than in men and is still the major cause of death in women. The risk of heart disease in women is often underestimated due to the misperception that females are ‘protected’ against cardiovascular disease. The under-recognition of heart disease and differences in clinical presentation in women lead to less aggressive treatment strategies and a lower representation of women in clinical trials." (Neth Heart J 2010)
 
@@ -135,32 +135,30 @@ continuous_data_norm = continuous_data.apply(normalize)
 
 ```
 
-Separate dataset into predictors and target and train and test.
+Separate dataset into predictors, target and train, test.
 
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=seed)
 ```
  
-I tested 5 different models on the dataset, but the Logistic Regression Model performed the best time wise and Recall score wise.
+I tested 5 different models on the dataset, but the Logistic Regression Model had the best Recall score and was the fastest. It took 0.001sec to fit the model.
 
 A high Recall Score is needed to reflect a low false negative result.
 
 A false positive will cost more but it's likely that the doctor will order more tests, and down the line they will find out the good news, that the patient has no heart disease. 
-A false hegative will cost more down the line because it's less costly to treat a disease in incipient phases, but also delaying the correct diagnosis will ireverebly damage the health of the patient reducing the life quality and expectancy.
+A false hegative, on the other hand, will cost more down the line because it's more costly to treat a disease in advanced phases, but also delaying the correct diagnosis will ireversebly damage the health of the patient, reducing their life quality and expectancy.
 
 Instatiate the model:
+
 ```
-# Instantiate
 logreg = LogisticRegression(fit_intercept=False, C=1e12, solver='liblinear')
 ```
 
-Fit and predict:
+Fit and predict model:
 
 ```
-# Fit the model to training data
 model_log = logreg_1.fit(X_train, y_train)
 
-# Predict on test set
 y_hat_test = logreg_1.predict(X_test)
 ```
 
@@ -178,8 +176,10 @@ y_test_score = model_log.decision_function(X_test)
 test_fpr, test_tpr, test_thresholds = roc_curve(y_test, y_test_score)
 ```
 
-ROC curve:
 
+Plot the ROC curve for Logistic Regression Model:
+
+```
 # Seaborn
 sns.set_style('darkgrid', {'axes.facecolor': '0.9'})
 
@@ -199,6 +199,7 @@ plt.title('Receiver operating characteristic (ROC) Curve for Training Set')
 plt.legend(loc='lower right')
 print('Training AUC: {}'.format(metrics.auc(train_fpr, train_tpr)))
 plt.show()
+```
 
 <img src="https://imgur.com/90H9Oq0" alt="visualisation" class="img-responsive">
 
