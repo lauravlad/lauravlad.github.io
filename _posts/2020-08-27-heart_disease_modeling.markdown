@@ -5,6 +5,12 @@ date:       2020-08-27 20:56:40 -0400
 permalink:  heart_disease_modeling
 ---
 
+
+
+
+
+
+
 https://imgur.com/zdu8h3z.png
 
 This is my third project with Flatiron Scool of Data Science.
@@ -208,10 +214,4 @@ print('\n\n')
 Et voila!
 
 https://imgur.com/BRgT6ZZ.png
-
-
-
-
-
-
 
