@@ -7,16 +7,12 @@ permalink:  heart_disease_modeling
 
 <img src="https://imgur.com/zdu8h3z.png" class="img-responsive">
 
-
-This is my third project with Flatiron Scool of Data Science.
-
 Mayoclinic defines heart disease as:
-
 "a range of conditions that affect your heart. Diseases under the heart disease umbrella include blood vessel diseases, such as coronary artery disease; heart rhythm problems (arrhythmias); and heart defects you're born with (congenital heart defects), among others.
 
 The term "heart disease" is often used interchangeably with the term "cardiovascular disease." Cardiovascular disease generally refers to conditions that involve narrowed or blocked blood vessels that can lead to a heart attack, chest pain (angina) or stroke. Other heart conditions, such as those that affect your heart's muscle, valves or rhythm, also are considered forms of heart disease."
 
-My goal in this project is to find the best working model for this specific dataset.
+My goal in this project is to find the best performing model for this specific dataset.
 
 I started working with the Heart.csv dataset found on Kaggle, but soon I found out that some of the features were incondistent with the dataset description. For example: the target feature was supposed to have two values: 0 for healthy (no heart disease), and 1 for not healthy (heart disease) but they were somehow switched. This was only the begining so I decided to use the dataset dounloaded from <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">here </a>. The dataset contains 14 atribute columns and a little over 303 instances. 
 
@@ -53,22 +49,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 plt.style.use('seaborn')
-
-import scipy.stats as stats
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-
 from sklearn.metrics import roc_curve, roc_auc_score, precision_score, accuracy_score, recall_score, 
 
 ```
 
 We imported and transformed the csv document into a dataframe for analysis:
-
 ```
 data=pd.read_csv('processed.cleveland.csv')
 data.head()
 ```
-
 We separated features into categorical data and continuous data using this function:
 
 ```
@@ -92,14 +83,13 @@ def find_number_unique_values(df):
 ```
 
 While analysing each one of the predictors, we discovered that 'ca' and 'thal' features have a few values missing so we dropped the coresponding rows:
-
 ```
 #Drop rows with ca = ?.
 data = data[data['ca']!='?']
 ```
 After analysing the dataset we can conclude the obvious: age, lower maximum blood pressure, high blood glucose levels, abnormal elecrocardiographic results, and blockages on major blood vessels increase the probability of having heart disease.
  
- We can also deduct less obvious. 
+ We can also get a hint on the less obvious:
 
 According to this dataset, earlier in life man are more likely to develop heart disease than women.
 
@@ -119,14 +109,12 @@ The claim is supported by this dataset where women account for 30% of the total 
 
 Preprocessing data:  
 
-Create dummy categories for categorical data:
- 
+Create dummy categories for categorical data: 
 ```
  categ_dummy_data= pd.get_dummies(data[categ_cols], drop_first=True)
 ```
  
 Normalize continuous data:
-
 ```
 def normalize(feature):
     return (feature - feature.mean()) / feature.std()
@@ -135,8 +123,7 @@ continuous_data_norm = continuous_data.apply(normalize)
 
 ```
 
-Separate dataset into predictors, target and train, test.
-
+Separate dataset into predictors, target and train, test:
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=seed)
 ```
@@ -149,7 +136,6 @@ A false positive will cost more but it's likely that the doctor will order more 
 A false hegative, on the other hand, will cost more down the line because it's more costly to treat a disease in advanced phases, but also delaying the correct diagnosis will ireversebly damage the health of the patient, reducing their life quality and expectancy.
 
 Instatiate the model:
-
 ```
 logreg = LogisticRegression(fit_intercept=False, C=1e12, solver='liblinear')
 ```
@@ -158,7 +144,6 @@ Fit and predict model:
 
 ```
 model_log = logreg_1.fit(X_train, y_train)
-
 y_hat_test = logreg_1.predict(X_test)
 ```
 
@@ -176,14 +161,10 @@ y_test_score = model_log.decision_function(X_test)
 test_fpr, test_tpr, test_thresholds = roc_curve(y_test, y_test_score)
 ```
 
-
 Plot the ROC curve for Logistic Regression Model:
-
 ```
 # Seaborn
 sns.set_style('darkgrid', {'axes.facecolor': '0.9'})
-
-# ROC curve for training set
 plt.figure(figsize=(10, 8))
 lw = 2
 plt.plot(train_fpr, train_tpr, color='darkorange',
@@ -201,10 +182,9 @@ print('Training AUC: {}'.format(metrics.auc(train_fpr, train_tpr)))
 plt.show()
 ```
 
-<img src="https://imgur.com/90H9Oq0" alt="visualisation" class="img-responsive">
+<img src="https://imgur.com/90H9Oq0.png" alt="visualisation" class="img-responsive">
 
 Calculate Recall Score:
-
 ```
 y_hat_train = logreg_1.predict(X_train)
 y_hat_test = logreg_1.predict(X_test)
@@ -213,11 +193,10 @@ y_hat_test = logreg_1.predict(X_test)
 ```
 print('Training Recall: ', recall_score(y_train, y_hat_train))
 print('Testing Recall: ', recall_score(y_test, y_hat_test))
-print('\n\n')
 ```
 
 Et voila!
 
-<img src="https://imgur.com/BRgT6ZZ" alt="visualisation" class="img-responsive">
+<img src="https://imgur.com/BRgT6ZZ.png" alt="visualisation" class="img-responsive">
 
 
