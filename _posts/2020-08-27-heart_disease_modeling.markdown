@@ -5,7 +5,7 @@ date:       2020-08-27 20:56:40 -0400
 permalink:  heart_disease_modeling
 ---
 
-<img src="https://imgur.com/zdu8h3z" alt="Heart image" class="img-responsive">
+<img src="https://imgur.com/zdu8h3z.png" class="img-responsive">
 
 
 This is my third project with Flatiron Scool of Data Science.
@@ -103,7 +103,7 @@ After analysing the dataset we can conclude the obvious: age, lower maximum bloo
 
 According to this dataset, earlier in life man are more likely to develop heart disease than women.
 
-<img src="https://imgur.com/siWUz1V" alt="visualisation" class="img-responsive">
+<img src="https://imgur.com/siWUz1V.png" alt="visualisation" class="img-responsive">
 
 
 Later in life the difference is not that striking.
