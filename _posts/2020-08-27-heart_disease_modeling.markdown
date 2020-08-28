@@ -60,7 +60,7 @@ We imported and transformed the csv document into a dataframe for analysis:
 data=pd.read_csv('processed.cleveland.csv')
 data.head()
 ```
-We separated features into categorical data and continuous data using this function:
+We separated features into categorical data and continuous data and boolean using this function:
 
 ```
 # Function that will find the number of unique values and tell us if it's high or low.
