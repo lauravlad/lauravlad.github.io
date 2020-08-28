@@ -103,11 +103,13 @@ Aftyer analysing the dataset we can conclude the obvious: age, lower maximum blo
 
 According to this dataset, earlier in life man are more likely to develop heart disease than women.
 
-![](https://imgur.com/siWUz1V.png)
+<img src="https://imgur.com/siWUz1V" alt="visualisation" class="img-responsive">
+
 
 Later in life the difference is not that striking.
 
-![](https://imgur.com/QsnCnej.png)
+<img src="https://imgur.com/QsnCnej.png" alt="visualisation" class="img-responsive">
+
 
 The problem is that there is this stereotype that women are less likely to develop cardiovascular diseases because they are protected by higher leves of estrogen therefore they are less likely to be tested when complaining of heart issues. Instead they are given antidepressants because of another stereotype: women are more likely to be depressed.
 
@@ -198,7 +200,7 @@ plt.legend(loc='lower right')
 print('Training AUC: {}'.format(metrics.auc(train_fpr, train_tpr)))
 plt.show()
 
-![](https://imgur.com/90H9Oq0.png)
+<img src="https://imgur.com/90H9Oq0" alt="visualisation" class="img-responsive">
 
 Calculate Recall Score:
 
@@ -215,5 +217,6 @@ print('\n\n')
 
 Et voila!
 
-![](https://imgur.com/BRgT6ZZ.png)
+<img src="https://imgur.com/BRgT6ZZ" alt="visualisation" class="img-responsive">
+
 
