@@ -6,12 +6,8 @@ permalink:  heart_disease_modeling
 ---
 
 
+![](https://imgur.com/zdu8h3z.png)
 
-
-
-
-
-https://imgur.com/zdu8h3z.png
 
 This is my third project with Flatiron Scool of Data Science.
 
@@ -58,6 +54,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 plt.style.use('seaborn')
+
+import scipy.stats as stats
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+from sklearn.metrics import roc_curve, roc_auc_score, precision_score, accuracy_score, recall_score, 
+
 ```
 
 We turned the csv document into a dataframe for analysis:
@@ -101,11 +104,11 @@ Aftyer analysing the dataset we can conclude the obvious: age, lower maximum blo
 
 According to this dataset, earlier in life man are more likely to develop heart disease than women.
 
-https://imgur.com/siWUz1V.png
+![](https://imgur.com/siWUz1V.png)
 
 Later in life the difference is not that striking.
 
-https://imgur.com/QsnCnej.png
+![](https://imgur.com/QsnCnej.png)
 
 The problem is that there is this stereotype that women are less likely to develop cardiovascular diseases because they are protected by higher leves of estrogen therefore they are less likely to be tested when complaining of heart issues. Instead they are given antidepressants because of another stereotype: women are more likely to be depressed.
 
@@ -196,7 +199,7 @@ plt.legend(loc='lower right')
 print('Training AUC: {}'.format(metrics.auc(train_fpr, train_tpr)))
 plt.show()
 
-https://imgur.com/90H9Oq0.png
+![](https://imgur.com/90H9Oq0.png)
 
 Calculate Recall Score:
 
@@ -213,5 +216,5 @@ print('\n\n')
 
 Et voila!
 
-https://imgur.com/BRgT6ZZ.png
+![](https://imgur.com/BRgT6ZZ.png)
 
