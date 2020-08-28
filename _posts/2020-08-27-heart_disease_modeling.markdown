@@ -14,7 +14,7 @@ The term "heart disease" is often used interchangeably with the term "cardiovasc
 
 My goal in this project is to find the best performing model for this specific dataset.
 
-I started working with the Heart.csv dataset found on Kaggle, but soon I found out that some of the features were incondistent with the dataset description. For example: the target feature was supposed to have two values: 0 for healthy (no heart disease), and 1 for not healthy (heart disease) but they were somehow switched. This was only the begining so I decided to use the dataset dounloaded from <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">here </a>. The dataset contains 14 atribute columns and a little over 303 instances. 
+I started working with the Heart.csv dataset found on Kaggle, but soon I found out that some of the features were incondistent with the dataset description. For example: the target feature was supposed to have two values: 0 for healthy (no heart disease), and 1 for not healthy (heart disease) but they were somehow switched. This was only the begining; so I decided to use the dataset dounloaded from <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">here </a>. The dataset contains 14 atribute columns and a little over 303 instances. 
 
 Attribute Information:
 1. age: age in years
