@@ -16,6 +16,9 @@ This model will save labor, therefore money in a company's journey to improve cu
   The dataset I used can ce found 
 	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>:
 	
+	Before cleaning, the datset is expected ...
+	
+
 	Before cleaning, the dataset is expected to be a csv  file with three columns:
 1.  *Tweet text*  column contains  tweet texts.
 2.  *Emotion in tweet is directed at* column contains a product or service tweet is refering to.
