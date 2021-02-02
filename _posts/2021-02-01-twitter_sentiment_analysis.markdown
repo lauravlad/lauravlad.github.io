@@ -20,11 +20,7 @@ This model will save labor, therefore money in a company's journey to improve cu
 2. 	Emotion in tweet is directed at column contains the product or service the tweet emotion is directed at.
 3. 	Is there an emotion directed at a brand or product colmn contains the emotion or the lack of emotion found in the tweet text.
 
-  The dataset I used can be found 
-	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
-	
-	
-	Analyze tweet column. Let's see what kind of information it contains. What do we want to keep, transform or get rid of? 
+Let's analyze the Tweet text column, see what type of information it contains, decide what we want to keep, transform or get rid of?
 	
 `print(dataset['Tweet'][174])`
 
