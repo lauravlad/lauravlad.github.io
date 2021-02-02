@@ -9,9 +9,13 @@ permalink:  twitter_sentiment_analysis
 <a href="https://imgur.com/0FZrIy7"><img src="https://i.imgur.com/0FZrIy7.png" title="source: imgur.com" /></a>
 
 The following is part of my 4th Project with Flatiron School of Data Science to build a model that will predict if a tweet was negative, positive or neutral.
+
 Using people to label data can be labor intensive and expensive.
+
 A succesful model would be useful for companies looking to improve their customer service.
+
 Negative tweets can be used to identify unhappy customers and try to understand what is the source of their unhappiness. 
+
 Positive tweets can be used to showcase customer experience or for training purposes.
 
 The dataset I used can be found  <a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
@@ -19,7 +23,7 @@ The dataset I used can be found  <a href="https://data.world/crowdflower/brands-
 > Contributors evaluated tweets about multiple brands and products. The crowd was asked if the tweet expressed positive, negative, or no emotion towards a brand and/or product. If some emotion was expressed they were also asked to say which brand or product was the target of that emotion. 
 
 Before cleaning, the dataset is expected to be a csv file with three columns:
-1. 	Tweet_text column contains the tweet text.
+1. 	'Tweet_text' column contains the tweet text.
 2. 	Emotion in tweet is directed at column contains the product or service the tweet emotion is directed at.
 3. 	Is there an emotion directed at a brand or product column contains the emotion or the lack of emotion found in the tweet text.
 
