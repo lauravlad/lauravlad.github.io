@@ -14,7 +14,9 @@ I had to build a model that will succesfuly predict if a tweet was negative, pos
 This model will save labor, therefore money in a company's journey to improve customer service therefore improving sales and customer retention.
 
   The dataset I used can be found 
-	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>:
+	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
+	
+	Before cleaning, the dataset is expected
 	
 	Before cleaning, the dataset is expected to be a csv  file with three columns:
          1.  *Tweet text* column contains tweet texts.
