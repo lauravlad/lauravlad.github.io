@@ -12,6 +12,7 @@ This work is part of my 4th Porject with Flatiron School of Data Science.
 
 I had to build a model that will succesfuly predict if a tweet was negative, positive or neutral.
 This model will save labor, therefore money in a company's journey to improve customer service therefore improving sales and customer retention.
+
    The daset I used can be found  <a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
 
   Before cleaning, the dataset is expected to be a csv file with three columns:
@@ -22,17 +23,6 @@ This model will save labor, therefore money in a company's journey to improve cu
   The dataset I used can be found 
 	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
 	
-	Before cleaning, the dataset is expected
-	
-	Before cleaning, the dataset is expected to be a csv  file with three columns:
-         1.  *Tweet text* column contains tweet texts.
-         2.  *Emotion in tweet is directed at* column contains a product or service tweet is referring to.
-         3.  *Is there an emotion directed at a brand or product* column contains the emotion or lack of emotion in the tweet.
-             Our goal here is to show how to clean and turn the tweet text column into data which classifiers will be able to digest and enjoy playing with. 
-	After analyzing and cleaning the whole dataset we will go ahead and proceed to cleaning the tweet column.
-	You can find more info on cleaning and analyzing this dataset  
-	
-	<a href="https://github.com/lauravlad/Twitter-Sentiment-Analysis-Apple-Google">here </a>.
 	
 	Analyze tweet column. Let's see what kind of information it contains. What do we want to keep, transform or get rid of? 
 	
