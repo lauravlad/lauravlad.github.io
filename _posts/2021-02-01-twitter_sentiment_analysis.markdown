@@ -12,6 +12,12 @@ This work is part of my 4th Porject with Flatiron School of Data Science.
 
 I had to build a model that will succesfuly predict if a tweet was negative, positive or neutral.
 This model will save labor, therefore money in a company's journey to improve customer service therefore improving sales and customer retention.
+   The daset I used can be found  <a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
+
+  Before cleaning, the dataset is expected to be a csv file with three columns:
+1. 	Tweet_text column contains the tweet text.
+2. 	Emotion in tweet is directed at column contains the product or service the tweet emotion is directed at.
+3. 	Is there an emotion directed at a brand or product colmn contains the emotion or the lack of emotion found in the tweet text.
 
   The dataset I used can be found 
 	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
