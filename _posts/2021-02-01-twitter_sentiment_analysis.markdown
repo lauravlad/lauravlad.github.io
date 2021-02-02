@@ -13,7 +13,7 @@ This work is part of my 4th Porject with Flatiron School of Data Science.
 I had to build a model that will succesfuly predict if a tweet was negative, positive or neutral.
 This model will save labor, therefore money in a company's journey to improve customer service therefore improving sales and customer retention.
 
-  The dataset I used can ce found here: https://data.world/crowdflower/brands-and-product-emotions"
+  The dataset I used can ce found here: 
 	<a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>
 	
 	Before cleaning, the dataset is expected to be a csv  file with three columns:
@@ -26,6 +26,14 @@ This model will save labor, therefore money in a company's journey to improve cu
 	You can find more info on cleaning and analyzing this dataset [https://github.com/lauravlad/Twitter-Sentiment-Analysis-Apple-Google](http://)
 	
 	<a href="https://github.com/lauravlad/Twitter-Sentiment-Analysis-Apple-Google">here </a>
+	
+	Analyse tweet column. Let's see what kind of information it contains. What do we want to keep and what do we want to get rid of? 
+	
+```print(dataset['Tweet'][174])```
+
+
+	
+	
 
 
 
