@@ -8,14 +8,17 @@ permalink:  twitter_sentiment_analysis
 
 <a href="https://imgur.com/0FZrIy7"><img src="https://i.imgur.com/0FZrIy7.png" title="source: imgur.com" /></a>
 
-This work is part of my 4th Project with Flatiron School of Data Science.
+The following is part of my 4th Project with Flatiron School of Data Science to build a model that will predict if a tweet was negative, positive or neutral.
+Using people to label data can be labor intensive and expensive.
+A succesful model would be useful for companies looking to improve their customer service.
+Negative tweets can be used to identify unhappy customers and try to understand what is the source of their unhappiness. 
+Positive tweets can be used to showcase customer experience or for training purposes.
 
-I had to build a model that will successfully predict if a tweet was negative, positive or neutral.
-This model will save labor, therefore money in a company's journey to improve customer service therefore improving sales and customer retention.
+The dataset I used can be found  <a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
 
-   The dataset I used can be found  <a href="https://data.world/crowdflower/brands-and-product-emotions">here </a>.
+> Contributors evaluated tweets about multiple brands and products. The crowd was asked if the tweet expressed positive, negative, or no emotion towards a brand and/or product. If some emotion was expressed they were also asked to say which brand or product was the target of that emotion. 
 
-  Before cleaning, the dataset is expected to be a csv file with three columns:
+Before cleaning, the dataset is expected to be a csv file with three columns:
 1. 	Tweet_text column contains the tweet text.
 2. 	Emotion in tweet is directed at column contains the product or service the tweet emotion is directed at.
 3. 	Is there an emotion directed at a brand or product column contains the emotion or the lack of emotion found in the tweet text.
@@ -28,12 +31,12 @@ This is our test tweet.
 
 <a href="https://imgur.com/4uqxFbE"><img src="https://i.imgur.com/4uqxFbE.png" title="source: imgur.com" /></a>
 
-We can see we have handles, emojis, punctuation, and stopwords that we need to take care.
+We can see, we have: handles, emojis, punctuation, and stopwords that we need to take care.
 Stopwords are considered to be unimportant words, like 'the' or 'it'. Eliminating these words allow applications to focus on the important words instead.
 
 Let's handles emojis first:
 
-You will need to import a helpful library:
+You will need to import a helpful libraries:
 
 
 `import re`
