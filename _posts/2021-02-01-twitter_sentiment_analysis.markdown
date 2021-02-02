@@ -5,7 +5,7 @@ date:       2021-02-01 21:53:43 -0500
 permalink:  twitter_sentiment_analysis
 ---
 
-<img src="https://imgur.com/0FZrIy7http://.png" class="img-responsive">
+<img src="https://imgur.com/hZKGbWK.png" class="img-responsive">
 
     I remember like it was yesterday; Monday afternoon 1.30, I was supposed to zoommeet Eli, my new instructor at Flatiron School of Datascience.  Eli was a thirty something young male and I am a forty something 'young' woman. I was pretty confident that  a thirty something young guy cannot teach me things about life anymore so I couldn't hide my boredom. He asked me if I have any questions for him I asked him what would be a good configuration for my computer and he told me that an Apple computer would be better for what I was embarking  to do in the next 10 months. But I hate Apple! I said remembering  the awfull experience I had with apple repairs after I broke my phone's the display. 
     It was insured, so I didn't give it a second thought and I sent it to apple repairs to be fixed. They sent it back without touching it. I called the customer service and the lady I was talking to, told me it has been repaired. No, it was not, I replied obviously annoyed. How do you know, she asked me candidly. I'm looking at a broken screen, I said rolling my eyes. 
