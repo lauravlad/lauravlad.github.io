@@ -32,7 +32,7 @@ This model will save labor, therefore money in a company's journey to improve cu
 
 This is our test tweet. 
 
-![](<a href="https://imgur.com/4uqxFbE"><img src="https://i.imgur.com/4uqxFbE.png" title="source: imgur.com" /></a>)
+<a href="https://imgur.com/4uqxFbE"><img src="https://i.imgur.com/4uqxFbE.png" title="source: imgur.com" /></a>
 
 We can see we have handles, emojis, punctuation, and stopwords that we need to take care.
 Stopwords are considered to be unimportant words, like 'the' or 'it'. Eliminating these words allow applications to focus on the important words instead.
