@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Cleaning and vectorizing tweets "
+title:      "Cleaning tweets for machine learning algorithms  "
 date:       2021-02-01 21:53:43 -0500
 permalink:  twitter_sentiment_analysis
 ---
