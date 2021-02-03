@@ -24,10 +24,10 @@ The dataset I used can be found  <a href="https://data.world/crowdflower/brands-
 
 Before cleaning, the dataset is expected to be a csv file with three columns:
 1. 	'Tweet_text' column contains the tweet text.
-2. 	Emotion in tweet is directed at column contains the product or service the tweet emotion is directed at.
-3. 	Is there an emotion directed at a brand or product column contains the emotion or the lack of emotion found in the tweet text.
+2. 	'Emotion_in_tweet_is_directed_at' column contains the product or service the tweet emotion is directed at.
+3. 	'Is_there_an_emotion_directed_at_a_brand_or_product' column contains the emotion or the lack of emotion found in the tweet text.
 
-Let's analyze the Tweet text column, see what type of information it contains, decide what we want to keep, transform or get rid of?
+Let's analyze the Tweet_text column, see what type of information it contains,  and decide what we want to keep, transform or get rid of?
 	
 `print(dataset['Tweet'][174])`
 
@@ -36,17 +36,16 @@ This is our test tweet.
 <a href="https://imgur.com/4uqxFbE"><img src="https://i.imgur.com/4uqxFbE.png" title="source: imgur.com" /></a>
 
 We can see, we have: handles, emojis, punctuation, and stopwords that we need to take care.
+
 Stopwords are considered to be unimportant words, like 'the' or 'it'. Eliminating these words allow applications to focus on the important words instead.
 
 Let's handles emojis first:
 
-You will need to import a helpful libraries:
+You will need to import a helpful libraries like: re, numpy, pandas, matplotlib, and nltk.
 
+I found this function that turns happy emojis into EMO_POS and unhappy emojis into EMO_NEG 
 
-`import re`
-
-
-This function turns happy emojis into EMO_POS and unhappy emojis into EMO_NEG
+<a href="https://github.com/abdulfatir/twitter-sentiment-analysis/blob/master/code/preprocess.py">here </a>.
 
 ```
 
@@ -67,11 +66,10 @@ def handle_emojis(tweet):
 ```
 
 
-There are prefilled libraries of stopwords in nltk.
+There are prefilled libraries of stopwords in nltk so let's import the list.
 
 
 ```
-import nltk
 from nltk.corpus import stopwords
 ```
 
@@ -83,7 +81,7 @@ STOPWORDS += list(string.punctuation)
 ```
 
 
-Turn the stopword list into a set and remove the word 'not' from it because we're interested in catching negative emotions too.
+Turn the stopword list into a set and remove the word 'not' from it because we're also interested in catching negative emotions.
 
 ```
 STOPWORDS = set(STOPWORDS)
@@ -91,7 +89,7 @@ STOPWORDS.remove("not")
 ```
 
 
-Create a new column 'Clean Tweet' for storing the tweet text after cleaning. and turn any capital letter into lower case.
+Create a new column 'Clean_tweet' for storing tweet text after cleaning and turn any capital letter into lower case.
 
 ```
 dataset['Clean_tweet'] = dataset['Tweet'].apply(lambda tweet: tweet.lower())
@@ -99,7 +97,7 @@ dataset.Clean_tweet[174]
 ```
 
 
-Turn emojis into either positive emotion or negative emotion using the above function. 
+We will turn emojis into either positive or negative emotion using the above function. 
 
 
 ```
@@ -115,38 +113,33 @@ Remove user handles starting with @.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].str.replace("@[\w]*","")
-dataset.Clean_tweet[174]
 ```
 
 Remove special characters.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].str.replace("[^a-zA-Z' ]","")
-dataset.Clean_tweet[174]
 ```
 
 Remove urls.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].replace(re.compile(r"((www\.[^\s]+)|(https?://[^\s]+))"), "")
-dataset.Clean_tweet[174]
 ```
 
 Remove single characters.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].replace(re.compile(r"(^| ).( |$)"), " ")
-dataset.Clean_tweet[174]
 ```
 
 Turn the text into a list of strings.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].str.split()
-dataset.Clean_tweet[174]
 ```
  
-Remove remove unimportant words called stopwords. Check what our test tweet looks like now after all the alterations we've done.
+Remove remove unimportant words called stopwords. Check what our test tweet looks  after all the alterations we've performed.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].apply(lambda tweet: [word for word in tweet if word not in STOPWORDS])
@@ -169,6 +162,7 @@ def expand_tweet(tweet):
     return expanded_tweet
 ```
 
+We'll stemm and lemmatize next.
 This is an example of what a Stemmer does vs a Lemmatizer.
 
 <a href="https://imgur.com/lvNdvts"><img src="https://i.imgur.com/lvNdvts.png" title="source: imgur.com" /></a>
@@ -192,14 +186,14 @@ dataset['Clean_tweet'] = dataset['Clean_tweet'].apply(lambda tweet: [porterStemm
 dataset.Clean_tweet[174]
 ```
 
-Turn the list of strings, now cleaned back into tweets.
+Turn the list of strings, now cleaned, back into tweets.
 
 ```
 dataset['Clean_tweet'] = dataset['Clean_tweet'].apply(lambda tweet: ' '.join(tweet))
 dataset.Clean_tweet[174]
 ```
 
-Compare  our test tweet with  test clean tweet.
+Compare initial test tweet with the respective clean tweet.
 
 ```
 print(dataset.Tweet[174])
@@ -208,15 +202,15 @@ print(dataset.Clean_tweet[174])
 
 <a href="https://imgur.com/DZT3iIq"><img src="https://i.imgur.com/DZT3iIq.png" title="source: imgur.com" /></a>
 
-Delete Tweet column, we don't need it anymore.
+Delete Tweet column since we have all the information we need stored in the 'Clean_tweet' column.
 
 `cleaned_dataset = dataset.drop('Tweet', axis=1 )`
 
 <a href="https://imgur.com/CeKYwHt"><img src="https://i.imgur.com/CeKYwHt.png" title="source: imgur.com" /></a>
 
-Once we separate positive tweets from negative or neutral tweets we can see what are the most frequent words.
+To have fun we can separate positive tweets from negative tweets and find out what are  the most frequent words in both lists.
 
-Create a list of all the tweet texts.
+Create a list of all tweet texts that were labeled positive.
 
 ```
 positive_tweets = []
@@ -225,14 +219,15 @@ for tweet in dataset_positive['Clean_tweet']:
 #print(positive_tweets)
 ```
 
-Create bag of words for positive tweets. Instead of a list of tweets now we'll have a list of words.
+Create bag of words for positive tweets. 
+Instead of a list of tweets now we'll have a list of words.
 
 ```
 positive_tweets_bag = ''.join([str(tweet) for tweet in dataset_positive['Clean_tweet']])
 #print(positive_tweets_bag)
 ```
 
-You can plot this using wordcloud.
+You can plot this using wordcloud and matplotlib.
 
 wordcloud = WordCloud(stopwords = STOPWORDS, background_color = "white", max_words = 1000).generate(positive_tweets_bag)
 plt.figure(figsize = (10, 6))
