@@ -8,7 +8,9 @@ permalink:  twitter_sentiment_analysis
 
 <a href="https://imgur.com/0FZrIy7"><img src="https://i.imgur.com/0FZrIy7.png" title="source: imgur.com" /></a>
 
-The following is part of my 4th Project with Flatiron School of Data Science to build a model that will predict if a tweet was negative, positive or neutral.
+We all have strong emotions, directed to different brands. We like Apple but not Google, we like Pepsi but not Cola ... If asked we even have reasons to do so. We express them on social media and even though they are less important for the person who feels them, they can be priceless for the companies emotions are directed to.. 
+
+The following work is part of my 4th Project with Flatiron School of Data Science to build a model that will predict if a tweet was negative, positive or neutral.
 
 Using people to label data can be labor intensive and expensive.
 
